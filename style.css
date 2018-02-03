@@ -2,14 +2,16 @@
   margin: 0px;
   font-family: "Open Sans"; sans-serif;
 }
-#container {
 
+html, body {
+  height: 100%;
 }
+
 #create-bookmark {
   background: #455a64;
   color: #ffffff;
   width: 480px;
-  height: 1000px;
+  height: 100%;
   display: block;
   float: left;
 }
@@ -19,9 +21,11 @@
 }
 #bookmark-list {  
   background: #cfd8dc;
-  min-width: 600px;
-  height: 1000px;
-  width: 100%;
+  min-width: 480px;
+  height: 100%;
+  width: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
   display: block;
   margin-right: 0px;
 }
@@ -32,6 +36,12 @@ header {
 header img {
   height: 49px;
 }
+
+span {
+  padding-top: 4px;
+  vertical-align: middle;
+}
+
 /*Check the font weight, not bold enough*/
 h1 {
   font-size: 52px;
@@ -69,26 +79,66 @@ form input {
   font-size: 18px;
   font-weight: 800;
 }
+
 #create-bookmark-button:hover {
   background: #ffd773;
+  cursor: pointer;
 }
 .bookmark-card {
   border: 1px solid #607d8b;
   background: #ffffff;
+  margin: 20px 20px 27px 20px;
+  padding: 15px;
+  max-width: 750px;
 }
 h2 {
   color: #455a64;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  display: block;
 }
 hr {
   border-top: 1px solid #cfd8dc;
+
 }
 a {
   color: #607d8b;
   text-decoration: underline #f2f4f4;
+  text-underline-position: under;
+  font-size: 20px;
+  display: block;
+  padding-top: 18px;
+  padding-bottom: 25px;
 }
+
+a:hover {
+  cursor: pointer;
+  text-decoration-color: #ffc107;
+  color: #455a64;
+  font-weight: bold;
+}
+
+#bookmark-list button{
+  border: none;
+  color: #607d8b;
+  font-size:17px;
+  margin-top:10px;
+  text-decoration: underline #f2f4f4;
+  text-underline-position: under;
+}
+
+#bookmark-list button:hover {
+  cursor: pointer;
+  text-decoration-color: #ffc107;
+  color: #455a64;
+  font-weight: bold;
+
+}
+
 #read-button {
 
 }
 #delete-button {
-
+  float: right;
 }
