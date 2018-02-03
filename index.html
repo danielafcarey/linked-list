@@ -1,3 +1,16 @@
+<!-- 
+Two input fields
+ - One for the title of the bookmark
+ - One for the URL that the bookmark should link to
+One button for creating the bookmark and adding it to the page
+A section for all of the created bookmarks; each bookmark should display:
+ - The title of the bookmark
+ - The URL of the bookmark (this should be clickable and link to the URL)
+ - A button to “Mark as Read”
+ - A button to “Remove” the bookmark 
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +19,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <script type="text/javascript" src="script.js"></script>
+  <div id="container">
+    <section id="create-bookmark">
+      <header>
+        <h1>Linked <img> List</h1>
+      </header>
+      <form>
+        <input id="title-input" type="text" placeholder="Website Title" />
+        <input id="url-input" type="text" placeholder="Website URL" />
+        <button id="create-bookmark-button" type="submit">Enter</button>
+      </form>
+    </section>
+    <section id="bookmark-list">
+      <article class="bookmark-card">
+        <h2>The Website Title</h2>
+        <hr />
+        <a href="#">www.thewebsiteurl.com</a>
+        <hr />
+        <button id="read-button" type="button">Read</button>
+        <button id="delete-button" type="button">Delete</button>
+      </article>
+      <article class="bookmark-card">
+        <h2>The Website Title</h2>
+        <hr />
+        <a href="#">www.thewebsiteurl.com</a>
+        <hr />
+        <button id="read-button" type="button">Read</button>
+        <button id="delete-button" type="button">Delete</button>
+      </article>
+      <article class="bookmark-card">
+        <h2>The Website Title</h2>
+        <hr />
+        <a href="#">www.thewebsiteurl.com</a>
+        <hr />
+        <button id="read-button" type="button">Read</button>
+        <button id="delete-button" type="button">Delete</button>
+      </article>
+      <article class="bookmark-card">
+        <h2>The Website Title</h2>
+        <hr />
+        <a href="#">www.thewebsiteurl.com</a>
+        <hr />
+        <button id="read-button" type="button">Read</button>
+        <button id="delete-button" type="button">Delete</button>
+      </article>
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+  <div/>
 </body>
 </html>
