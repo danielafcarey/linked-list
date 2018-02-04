@@ -15,10 +15,12 @@ html, body {
   display: block;
   float: left;
 }
+
 #create-bookmark-container {
   width: 400px;
   margin: 0 auto;
 }
+
 #bookmark-list {  
   background: #cfd8dc;
   min-width: 480px;
@@ -29,10 +31,12 @@ html, body {
   display: block;
   margin-right: 0px;
 }
+
 header {
   margin-top: 210px;
   margin-bottom: 50px;
 }
+
 header img {
   height: 49px;
 }
@@ -42,7 +46,6 @@ span {
   vertical-align: middle;
 }
 
-/*Check the font weight, not bold enough*/
 h1 {
   font-size: 52px;
   font-weight: 800;
@@ -62,15 +65,11 @@ form input {
   outline-offset: -1px;
   border: 0px;
 }
+
 ::placeholder {
     color: #ccc;
 }
-#title-input {
 
-}
-#url-input {
-
-}
 #create-bookmark-button {
   background: #ffc107;
   color: #ffffff;
@@ -82,10 +81,15 @@ form input {
   font-weight: 800;
 }
 
+#create-bookmark-button:disabled {
+  background:#cccccc;
+}
+
 #create-bookmark-button:hover {
   background: #ffd773;
   cursor: pointer;
 }
+
 .bookmark-card {
   border: 1px solid #607d8b;
   background: #ffffff;
@@ -93,6 +97,7 @@ form input {
   padding: 15px;
   max-width: 750px;
 }
+
 h2 {
   color: #455a64;
   font-size: 25px;
@@ -100,10 +105,11 @@ h2 {
   margin-bottom: 5px;
   display: block;
 }
+
 hr {
   border-top: 1px solid #cfd8dc;
-
 }
+
 a {
   color: #607d8b;
   text-decoration: underline #f2f4f4;
@@ -138,9 +144,21 @@ a:hover {
 
 }
 
-#bookmark-list button.read {
+#bookmark-list .read .read-button {
   color: #f50a28;
   font-weight: bold;
+}
+
+#bookmark-list .read button {
+    background:none;
+}
+
+.bookmark-card.read  {
+  background: #f2f4f4;
+}
+
+.bookmark-card.read a {
+  text-decoration: underline #cfd8dc;
 }
 
 .delete-button {
