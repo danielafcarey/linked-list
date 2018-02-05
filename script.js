@@ -12,13 +12,17 @@ var cardTitle = document.querySelector('.card-title');
 var cardUrl = document.querySelector('.card-url');
 
 //event listeners
+$(document).on('click', '.read-button', function() {
+  $(this).closest('.bookmark-card').toggleClass('read');            
+});
+
+$(document).on('click', '.delete-button', deleteButton);
+
 titleInput.addEventListener('input', enableSubmitButton);
 urlInput.addEventListener('input', enableSubmitButton);
 createBookmarkButton.addEventListener('click', validateInput);
 
-
 //functions
-
 function enableSubmitButton() {
   if (titleInput.value !== '' || urlInput.value !== '' ) {
     createBookmarkButton.disabled = false;
@@ -50,30 +54,18 @@ function addBookmarkCard() {
   var titleInputValue = titleInput.value;
   var urlInputValue = urlInput.value;
 
-  var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title article-">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
+  var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
   titleInput.value = '';
   urlInput.value = '';
 
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
 
-  deleteCard();
 }
 
-$('.read-button').on('click', markAsRead);
-
-function markAsRead() {
-  $(this).closest('.bookmark-card').toggleClass('read');
-  console.log('marked as read');
+ function deleteButton() {
+  $(this).closest('.bookmark-card').remove();          
 }
-
-function deleteCard() {
-  $('.delete-button').on('click', function(){
-      $(this).closest('.bookmark-card').remove();
-  });
-}
-
-
 
 
 });
