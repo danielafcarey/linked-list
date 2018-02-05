@@ -16,8 +16,8 @@
         <h1>Linked <span><img src="linked-list-logo.svg" alt="Linked List logo"></span> List</h1>
       </header>
       <form id="create-bookmark-form">
-        <input id="title-input" type="text" placeholder="Website Title" />
-        <input id="url-input" type="text" placeholder="Website URL" />
+        <input id="title-input" type="text" placeholder="Website Title" name="title_input"/>
+        <input id="url-input" type="text" placeholder="Website URL" name="url_input"/>
         <button id="create-bookmark-button" type="submit" disabled>Enter</button>
       </form>
     </div>
@@ -28,6 +28,10 @@
   <!-- Scripts -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
+
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
   <script type="text/javascript" src="script.js"></script>
 
 </body>

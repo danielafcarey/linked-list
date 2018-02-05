@@ -16,8 +16,10 @@ titleInput.addEventListener('input', enableSubmitButton);
 urlInput.addEventListener('input', enableSubmitButton);
 createBookmarkButton.addEventListener('click', validateInput);
 
+
+//functions
+
 function enableSubmitButton() {
-  console.log('work?');
   if (titleInput.value !== '' || urlInput.value !== '' ) {
     createBookmarkButton.disabled = false;
   } else {
@@ -25,36 +27,44 @@ function enableSubmitButton() {
   }
 }
 
-//functions
-function validateInput() {
-  console.log('hello');
+function validateInput(event) {
+  event.preventDefault()
+
+  if(/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#url-input").val())) {
+  } else {
+    alert("Oops! 😳 Please enter a valid URL");
+    return
+  }
 
   if (titleInput.value === '') {
     alert('You must enter a website title');
   } else if (urlInput.value === '') {
     alert('You must enter a URL');  
   } else {
-  addBookmarkCard();
+    addBookmarkCard();
   }
 }
 
-
 function addBookmarkCard() {
+  console.log('addBookmarkCard function ran')
   var titleInputValue = titleInput.value;
   var urlInputValue = urlInput.value;
 
-  var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title article-">' + titleInputValue + '</h2><hr /><a class="card-url" href="#">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
+  var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title article-">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
+
+  titleInput.value = '';
+  urlInput.value = '';
 
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
-  markAsRead();
+
   deleteCard();
 }
 
+$('.read-button').on('click', markAsRead);
+
 function markAsRead() {
-  $('.read-button').on('click', function() {
-      $(this).closest('.bookmark-card').toggleClass('read');
-      console.log('WORK!');
-  });
+  $(this).closest('.bookmark-card').toggleClass('read');
+  console.log('marked as read');
 }
 
 function deleteCard() {
@@ -63,4 +73,9 @@ function deleteCard() {
   });
 }
 
+
+
+
 });
+
+
