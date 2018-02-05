@@ -3,6 +3,8 @@ $(document).ready(function() {
 //create bookmark section
 var titleInput = document.querySelector('#title-input');
 var urlInput = document.querySelector('#url-input');
+var totalBookmarkCounter = document.querySelector('#total-bookmark-counter');
+
 
 //bookmark list section
 var bookmarkList = document.querySelector('#bookmark-list');
@@ -10,17 +12,21 @@ var bookmarkCard = document.querySelector('.bookmark-card');
 var cardTitle = document.querySelector('.card-title');
 var cardUrl = document.querySelector('.card-url');
 
-//event listeners
 
+//event listeners
 $(document).on('click', '.read-button', readButton);
 $(document).on('click', '.delete-button', deleteButton);
 $(document).on('click', '#create-bookmark-button', validateInput);
+$(document).on('input', '#title-input', toggleBookmarkButton);
+$(document).on('input', '#url-input', toggleBookmarkButton);
 
-// //functions
+
+//functions
 $('#create-bookmark-button').prop('disabled',true);
-$('#title-input, #url-input').keyup(function(){
-    $('#create-bookmark-button').prop('disabled', this.value === "" ? true : false);     
-})
+
+function toggleBookmarkButton() {
+  $('#create-bookmark-button').prop('disabled', titleInput.value === '' && urlInput.value === '' ? true : false);
+}
 
 function validateInput(event) {
   event.preventDefault()
@@ -41,7 +47,6 @@ function validateInput(event) {
 }
 
 function addBookmarkCard() {
-  console.log('addBookmarkCard function ran')
   var titleInputValue = titleInput.value;
   var urlInputValue = urlInput.value;
 
@@ -52,15 +57,25 @@ function addBookmarkCard() {
 
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
 
+  var totalBookmarks = $('.bookmark-card').length;
+  console.log(totalBookmarks);
+  totalBookmarkCounter.innerHTML = totalBookmarks;
+
+  
+
+  toggleBookmarkButton();
+
 }
 
 function readButton() {
   $(this).closest('.bookmark-card').toggleClass('read');
   }   
 
- function deleteButton() {
+function deleteButton() {
   $(this).closest('.bookmark-card').remove();          
 }
+
+
 
 
 });
