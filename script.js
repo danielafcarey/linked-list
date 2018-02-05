@@ -4,6 +4,8 @@ $(document).ready(function() {
 var titleInput = document.querySelector('#title-input');
 var urlInput = document.querySelector('#url-input');
 var totalBookmarkCounter = document.querySelector('#total-bookmark-counter');
+var totalReadCounter = document.querySelector('#total-read-counter');
+var totalUnreadCounter = document.querySelector('#total-unread-counter');
 
 
 //bookmark list section
@@ -57,25 +59,41 @@ function addBookmarkCard() {
 
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
 
-  var totalBookmarks = $('.bookmark-card').length;
-  console.log(totalBookmarks);
-  totalBookmarkCounter.innerHTML = totalBookmarks;
-
-  
-
+  getBookmarkCount();
   toggleBookmarkButton();
+  getUnreadCount();
 
+}
+
+function getBookmarkCount() {
+  var totalBookmarks = $('.bookmark-card').length;
+  totalBookmarkCounter.innerHTML = totalBookmarks;
+}
+
+function getReadCount() {
+  var totalReadBookmarks = $('.read').length;
+  totalReadCounter.innerHTML = totalReadBookmarks;
+}
+
+function getUnreadCount() {
+  var totalBookmarks = $('.bookmark-card').length;
+  var totalReadBookmarks = $('.read').length;
+  var totalUnreadBookmarks = totalBookmarks - totalReadBookmarks;
+  totalUnreadCounter.innerHTML = totalUnreadBookmarks;
 }
 
 function readButton() {
   $(this).closest('.bookmark-card').toggleClass('read');
-  }   
+  getReadCount();
+  getUnreadCount();
+}   
 
 function deleteButton() {
-  $(this).closest('.bookmark-card').remove();          
+  $(this).closest('.bookmark-card').remove();
+  getBookmarkCount();
+  getReadCount();
+  getUnreadCount();
 }
-
-
 
 
 });
