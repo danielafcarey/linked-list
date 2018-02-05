@@ -3,7 +3,6 @@ $(document).ready(function() {
 //create bookmark section
 var titleInput = document.querySelector('#title-input');
 var urlInput = document.querySelector('#url-input');
-var createBookmarkButton = document.querySelector('#create-bookmark-button');
 
 //bookmark list section
 var bookmarkList = document.querySelector('#bookmark-list');
@@ -12,29 +11,21 @@ var cardTitle = document.querySelector('.card-title');
 var cardUrl = document.querySelector('.card-url');
 
 //event listeners
-$(document).on('click', '.read-button', function() {
-  $(this).closest('.bookmark-card').toggleClass('read');            
-});
 
+$(document).on('click', '.read-button', readButton);
 $(document).on('click', '.delete-button', deleteButton);
+$(document).on('click', '#create-bookmark-button', validateInput);
 
-titleInput.addEventListener('input', enableSubmitButton);
-urlInput.addEventListener('input', enableSubmitButton);
-createBookmarkButton.addEventListener('click', validateInput);
-
-//functions
-function enableSubmitButton() {
-  if (titleInput.value !== '' || urlInput.value !== '' ) {
-    createBookmarkButton.disabled = false;
-  } else {
-    createBookmarkButton.disabled = true;  
-  }
-}
+// //functions
+$('#create-bookmark-button').prop('disabled',true);
+$('#title-input, #url-input').keyup(function(){
+    $('#create-bookmark-button').prop('disabled', this.value === "" ? true : false);     
+})
 
 function validateInput(event) {
   event.preventDefault()
 
-  if(/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#url-input").val())) {
+  if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#url-input").val())) {
   } else {
     alert("Oops! 😳 Please enter a valid URL");
     return
@@ -62,6 +53,10 @@ function addBookmarkCard() {
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
 
 }
+
+function readButton() {
+  $(this).closest('.bookmark-card').toggleClass('read');
+  }   
 
  function deleteButton() {
   $(this).closest('.bookmark-card').remove();          
