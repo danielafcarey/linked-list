@@ -1,12 +1,13 @@
 $(document).ready(function() {
 
 //create bookmark section
-var titleInput = document.querySelector('#title-input');
-var urlInput = document.querySelector('#url-input');
-var totalBookmarkCounter = document.querySelector('#total-bookmark-counter');
-var totalReadCounter = document.querySelector('#total-read-counter');
-var totalUnreadCounter = document.querySelector('#total-unread-counter');
+var titleInput = $('#title-input');
+var urlInput = $('#url-input');
+var totalBookmarkCounter = $('#total-bookmark-counter');
+var totalReadCounter = $('#total-read-counter');
+var totalUnreadCounter = $('#total-unread-counter');
 
+console.log(titleInput);
 
 //bookmark list section
 var bookmarkList = document.querySelector('#bookmark-list');
@@ -23,12 +24,12 @@ $(document).on('input', '#title-input', toggleBookmarkButton);
 $(document).on('input', '#url-input', toggleBookmarkButton);
 $(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 
-
-//functions
+//defaults
 $('#create-bookmark-button').prop('disabled',true);
 
+//functions
 function toggleBookmarkButton() {
-  $('#create-bookmark-button').prop('disabled', titleInput.value === '' && urlInput.value === '' ? true : false);
+  $('#create-bookmark-button').prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
 }
 
 function validateInput(event) {
@@ -40,9 +41,9 @@ function validateInput(event) {
     return
   }
 
-  if (titleInput.value === '') {
+  if (titleInput.val() === '') {
     alert('You must enter a website title');
-  } else if (urlInput.value === '') {
+  } else if (urlInput.val() === '') {
     alert('You must enter a URL');  
   } else {
     addBookmarkCard();
@@ -50,16 +51,14 @@ function validateInput(event) {
 }
 
 function addBookmarkCard() {
-  var titleInputValue = titleInput.value;
-  var urlInputValue = urlInput.value;
+  var titleInputValue = $('#title-input').val();
+  var urlInputValue = $('#title-input').val();
 
   var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
-  titleInput.value = '';
-  urlInput.value = '';
-
   bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
 
+  clearInputs();
   getBookmarkCount();
   toggleBookmarkButton();
   getUnreadCount();
@@ -68,24 +67,31 @@ function addBookmarkCard() {
 
 function getBookmarkCount() {
   var totalBookmarks = $('.bookmark-card').length;
-  totalBookmarkCounter.innerHTML = totalBookmarks;
+  $(totalBookmarkCounter).text(totalBookmarks);
 }
 
 function getReadCount() {
   var totalReadBookmarks = $('.read').length;
-  totalReadCounter.innerHTML = totalReadBookmarks;
+  $(totalReadCounter).text(totalReadBookmarks);
 }
 
 function getUnreadCount() {
   var totalBookmarks = $('.bookmark-card').length;
   var totalReadBookmarks = $('.read').length;
   var totalUnreadBookmarks = totalBookmarks - totalReadBookmarks;
-  totalUnreadCounter.innerHTML = totalUnreadBookmarks;
+  $(totalUnreadCounter).text(totalUnreadBookmarks);
 }
 
 function clearReadBookmarks() {
   $('article.bookmark-card.read').remove();
+  totalReadCounter.innerHTML = 0;
+  getBookmarkCount();
+  getReadCount();
+}
 
+function clearInputs() {
+  $("#title-input").val("");
+  $("#url-input").val("");
 }
 
 function readButton() {

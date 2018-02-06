@@ -101,6 +101,9 @@ form input {
   border: none;
   box-shadow: 0 0 3px #777;
 }
+#clear-read-bookmarks-button:hover {
+  cursor: pointer;
+}
 
 .bookmark-card {
   border: 1px solid #607d8b;
