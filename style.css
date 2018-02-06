@@ -164,3 +164,28 @@ a:hover {
 .delete-button {
   float: right;
 }
+
+#bookmark-counters p {
+  width: 132px;
+  float: left;
+  font-size: 14px;
+  font-weight: 400;
+  border-right: 1px solid #34434c;
+}
+#bookmark-counters .last {
+  border-right: 0px;
+}
+#bookmark-counters span {
+    color: #cfd8dc;
+    width: 133px;
+    font-size: 35px;
+    font-style: normal;
+    float: left;
+    font-weight: 400;
+}
+#bookmark-counters {
+    text-align: center;
+    display: block;
+    margin-top:20px;
+    height: 85px;
+}
