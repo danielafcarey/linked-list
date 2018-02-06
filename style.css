@@ -104,6 +104,7 @@ form input {
 #clear-read-bookmarks-button:hover {
   cursor: pointer;
 }
+
 .bookmark-card {
   border: 1px solid #607d8b;
   background: #ffffff;
