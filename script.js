@@ -85,7 +85,8 @@ function getUnreadCount() {
 
 function clearReadBookmarks() {
   $('article.bookmark-card.read').remove();
-
+  totalReadCounter.innerHTML = 0;
+  getBookmarkCount();
 }
 
 function readButton() {
