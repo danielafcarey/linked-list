@@ -16,7 +16,6 @@ var bookmarkCard = $('.bookmark-card');
 var cardTitle = $('.card-title');
 var cardUrl = $('.card-url');
 
-
 //event listeners
 $(document).on('click', '.read-button', readButton);
 $(document).on('click', '.delete-button', deleteButton);
@@ -39,7 +38,7 @@ function toggleBookmarkButton() {
 function validateInput(event) {
   event.preventDefault()
 
-  if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#url-input").val())) {
+  if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(urlInput.val())) {
   } else {
     alert("Oops! 😳 Please enter a valid URL");
     return
@@ -56,8 +55,8 @@ function validateInput(event) {
 
 //add a new bookmark
 function addBookmarkCard() {
-  var titleInputValue = $('#title-input').val();
-  var urlInputValue = $('#url-input').val();
+  var titleInputValue = titleInput.val();
+  var urlInputValue = urlInput.val();
   var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
   bookmarkList.append(newBookmarkCard); 
@@ -95,8 +94,8 @@ function clearReadBookmarks() {
 }
 
 function clearInputs() {
-  $("#title-input").val("");
-  $("#url-input").val("");
+  titleInput.val("");
+  urlInput.val("");
 }
 
 //read & delete buttons
@@ -104,6 +103,7 @@ function readButton() {
   $(this).closest('.bookmark-card').toggleClass('read');
   getReadCount();
   getUnreadCount();
+  toggleClearReadBookmarksButton();
 }   
 
 function deleteButton() {
@@ -113,6 +113,11 @@ function deleteButton() {
   getUnreadCount();
 }
 
+// function toggleClearReadBookmarksButton() {
+//   if ($('.read').length > 0) {
+//     $('#clear-read-bookmarks-button').toggleClass('show');
+//   }
+// }
 
 });
 
