@@ -3,6 +3,7 @@ $(document).ready(function() {
 //create bookmark section
 var titleInput = $('#title-input');
 var urlInput = $('#url-input');
+var createBookmarkButton = $('#create-bookmark-button');;
 var totalBookmarkCounter = $('#total-bookmark-counter');
 var totalReadCounter = $('#total-read-counter');
 var totalUnreadCounter = $('#total-unread-counter');
@@ -10,10 +11,10 @@ var totalUnreadCounter = $('#total-unread-counter');
 console.log(titleInput);
 
 //bookmark list section
-var bookmarkList = document.querySelector('#bookmark-list');
-var bookmarkCard = document.querySelector('.bookmark-card');
-var cardTitle = document.querySelector('.card-title');
-var cardUrl = document.querySelector('.card-url');
+var bookmarkList = $('#bookmark-list');
+var bookmarkCard = $('.bookmark-card');
+var cardTitle = $('.card-title');
+var cardUrl = $('.card-url');
 
 
 //event listeners
@@ -25,13 +26,16 @@ $(document).on('input', '#url-input', toggleBookmarkButton);
 $(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 
 //defaults
-$('#create-bookmark-button').prop('disabled',true);
+$(createBookmarkButton).prop('disabled',true);
 
 //functions
+
+//toggle disable & enable of create bookmark button 
 function toggleBookmarkButton() {
-  $('#create-bookmark-button').prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
+  $(createBookmarkButton).prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
 }
 
+//validate inout fields aren't empty and valid
 function validateInput(event) {
   event.preventDefault()
 
@@ -50,21 +54,21 @@ function validateInput(event) {
   }
 }
 
+//add a new bookmark
 function addBookmarkCard() {
   var titleInputValue = $('#title-input').val();
   var urlInputValue = $('#url-input').val();
-
   var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
-  bookmarkList.insertAdjacentHTML('beforeend', newBookmarkCard); 
+  bookmarkList.append(newBookmarkCard); 
 
   clearInputs();
   getBookmarkCount();
   toggleBookmarkButton();
   getUnreadCount();
-
 }
 
+//counters
 function getBookmarkCount() {
   var totalBookmarks = $('.bookmark-card').length;
   $(totalBookmarkCounter).text(totalBookmarks);
@@ -82,6 +86,7 @@ function getUnreadCount() {
   $(totalUnreadCounter).text(totalUnreadBookmarks);
 }
 
+//clear buttons
 function clearReadBookmarks() {
   $('article.bookmark-card.read').remove();
   totalReadCounter.innerHTML = 0;
@@ -94,6 +99,7 @@ function clearInputs() {
   $("#url-input").val("");
 }
 
+//read & delete buttons
 function readButton() {
   $(this).closest('.bookmark-card').toggleClass('read');
   getReadCount();
