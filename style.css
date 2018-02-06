@@ -90,6 +90,18 @@ form input {
   cursor: pointer;
 }
 
+#clear-read-bookmarks-button {
+  width: 133px;
+  height: 29px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 26px;
+  background: #34434c;
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 3px #777;
+}
+
 .bookmark-card {
   border: 1px solid #607d8b;
   background: #ffffff;
@@ -172,9 +184,11 @@ a:hover {
   font-weight: 400;
   border-right: 1px solid #34434c;
 }
+
 #bookmark-counters .last {
   border-right: 0px;
 }
+
 #bookmark-counters span {
     color: #cfd8dc;
     width: 133px;
@@ -183,6 +197,7 @@ a:hover {
     float: left;
     font-weight: 400;
 }
+
 #bookmark-counters {
     text-align: center;
     display: block;

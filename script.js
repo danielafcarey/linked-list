@@ -21,6 +21,7 @@ $(document).on('click', '.delete-button', deleteButton);
 $(document).on('click', '#create-bookmark-button', validateInput);
 $(document).on('input', '#title-input', toggleBookmarkButton);
 $(document).on('input', '#url-input', toggleBookmarkButton);
+$(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 
 
 //functions
@@ -80,6 +81,11 @@ function getUnreadCount() {
   var totalReadBookmarks = $('.read').length;
   var totalUnreadBookmarks = totalBookmarks - totalReadBookmarks;
   totalUnreadCounter.innerHTML = totalUnreadBookmarks;
+}
+
+function clearReadBookmarks() {
+  $('article.bookmark-card.read').remove();
+
 }
 
 function readButton() {
