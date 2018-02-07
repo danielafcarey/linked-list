@@ -105,6 +105,7 @@ button:focus {
   display: block;
   margin-top: 20px;
   height: 85px;
+  margin-bottom: 20px;
 }
 
 #clear-read-bookmarks-button {
@@ -112,7 +113,8 @@ button:focus {
   width: 133px;
   height: 29px;
   margin: 0 auto;
-  margin-top: 26px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background: #34434c;
   color: #fff;
   border: none;
