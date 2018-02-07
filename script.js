@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+
+//variables 
+
 //create bookmark section
 var titleInput = $('#title-input');
 var urlInput = $('#url-input');
@@ -8,16 +11,16 @@ var totalBookmarkCounter = $('#total-bookmark-counter');
 var totalReadCounter = $('#total-read-counter');
 var totalUnreadCounter = $('#total-unread-counter');
 
-console.log(titleInput);
-
 //bookmark list section
 var bookmarkList = $('#bookmark-list');
 var bookmarkCard = $('.bookmark-card');
 var cardTitle = $('.card-title');
 var cardUrl = $('.card-url');
 
+
 //event listeners
 $(document).on('click', '.read-button', readButton);
+$(document).on('click', '.read-button', toggleBookmarkButton);
 $(document).on('click', '.delete-button', deleteButton);
 $(document).on('click', '#create-bookmark-button', validateInput);
 $(document).on('input', '#title-input', toggleBookmarkButton);
@@ -27,6 +30,7 @@ $(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 //defaults
 $(createBookmarkButton).prop('disabled',true);
 
+
 //functions
 
 //toggle disable & enable of create bookmark button 
@@ -34,7 +38,7 @@ function toggleBookmarkButton() {
   $(createBookmarkButton).prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
 }
 
-//validate inout fields aren't empty and valid
+//validate input fields aren't empty and valid
 function validateInput(event) {
   event.preventDefault()
 
@@ -63,8 +67,30 @@ function addBookmarkCard() {
 
   clearInputs();
   getBookmarkCount();
-  toggleBookmarkButton();
   getUnreadCount();
+}
+
+//read & delete buttons
+function readButton() {
+  $(this).closest('.bookmark-card').toggleClass('read');
+  getReadCount();
+  getUnreadCount();
+  toggleClearReadBookmarksButton();
+}   
+
+function deleteButton() {
+  $(this).closest('.bookmark-card').remove();
+  getBookmarkCount();
+  getReadCount();
+  getUnreadCount();
+}
+
+function toggleClearReadBookmarksButton() {
+  if ($('.read').length > 0) {
+    $('#clear-read-bookmarks-button').addClass('show');
+  } else {
+    $('#clear-read-bookmarks-button').removeClass('show');
+  }
 }
 
 //counters
@@ -97,27 +123,6 @@ function clearInputs() {
   titleInput.val("");
   urlInput.val("");
 }
-
-//read & delete buttons
-function readButton() {
-  $(this).closest('.bookmark-card').toggleClass('read');
-  getReadCount();
-  getUnreadCount();
-  toggleClearReadBookmarksButton();
-}   
-
-function deleteButton() {
-  $(this).closest('.bookmark-card').remove();
-  getBookmarkCount();
-  getReadCount();
-  getUnreadCount();
-}
-
-// function toggleClearReadBookmarksButton() {
-//   if ($('.read').length > 0) {
-//     $('#clear-read-bookmarks-button').toggleClass('show');
-//   }
-// }
 
 });
 
