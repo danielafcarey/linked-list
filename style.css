@@ -108,10 +108,10 @@ button:focus {
 }
 
 #clear-read-bookmarks-button {
+  display: none;
   width: 133px;
   height: 29px;
   margin: 0 auto;
-  display: block;
   margin-top: 26px;
   background: #34434c;
   color: #fff;
@@ -121,6 +121,10 @@ button:focus {
 
 #clear-read-bookmarks-button:hover {
   cursor: pointer;
+}
+
+#clear-read-bookmarks-button.show {
+  display: block;
 }
 
 #bookmark-list {  
