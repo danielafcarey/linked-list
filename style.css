@@ -191,6 +191,7 @@ a:hover {
   margin-top: 10px;
   text-decoration: underline #f2f4f4;
   text-underline-position: under;
+  background: none;
 }
 
 #bookmark-list button:hover {

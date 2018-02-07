@@ -1,3 +1,40 @@
+@media screen and (min-width: 1320px) {
+    
+  #bookmark-list {
+    padding: 20px 0px 20px 20px;
+  }
+
+  .bookmark-card {
+    width: 42%;
+    margin-right: 20px;
+    float: left;
+  }
+
+}
+
+@media screen and (min-width: 1320px) and (max-width: 1345px) {
+
+  .bookmark-card {
+    width: auto;
+    float: none;
+  }
+
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1320px) {
+    
+  .bookmark-card {
+    width: auto;
+    float: none;
+    display: block;
+    margin-right: 0px;
+    width: auto;
+    min-width: auto;
+    margin-bottom: 20px;
+  }
+  
+}
+
 @media screen and (max-width: 1000px) {
 
   #create-bookmark-container {
@@ -48,39 +85,5 @@
   #bookmark-counters span, #bookmark-counters p {
     width: 94px;
   }
-
-}
-
-  @media screen and (min-width: 1320px) {
-    
-  #bookmark-list {
-    padding: 20px 0px 20px 20px;
-  }
-  .bookmark-card {
-    width: 42%;
-    margin-right: 20px;
-    float: left;
-  }
-}
-
-  @media screen and (min-width: 1320px) and (max-width: 1345px) {
-
-  .bookmark-card {
-    width: auto;
-    float: none;
-  }
-}
-
-  @media screen and (min-width: 1000px) and (max-width: 1320px) {
-    
-.bookmark-card {
-    width: auto;
-    float: none;
-    display: block;
-    margin-right: 0px;
-    width: auto;
-    min-width: auto;
-    margin-bottom: 20px;
-}
 
 }
