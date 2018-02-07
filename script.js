@@ -60,6 +60,7 @@ function addBookmarkCard() {
   var urlInputValue = urlInput.val();
   var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
+  $(createBookmarkButton).prop('disabled',true);
   bookmarkList.append(newBookmarkCard); 
   clearInputs();
   getBookmarkCount();
