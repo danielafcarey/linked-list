@@ -24,7 +24,7 @@ $(document).on('input', '#url-input', toggleBookmarkButton);
 $(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 
 //defaults
-$(createBookmarkButton).prop('disabled',true);
+$(createBookmarkButton).prop('disabled', true);
 
 
 //functions
