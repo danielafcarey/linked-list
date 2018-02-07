@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
 //variables 
 //create bookmark section variables
 var titleInput = $('#title-input');
@@ -125,7 +123,4 @@ function clearInputs() {
   titleInput.val("");
   urlInput.val("");
 };
-
-});
-
 
