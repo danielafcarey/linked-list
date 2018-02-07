@@ -100,6 +100,7 @@ function getReadCount() {
   var totalReadBookmarks = $('.read').length;
 
   $(totalReadCounter).text(totalReadBookmarks);
+  toggleClearReadBookmarksButton()
 };
 
 function getUnreadCount() {
