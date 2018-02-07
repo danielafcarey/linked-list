@@ -6,55 +6,33 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="responsive.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
-
 </head>
 <body>
-
   <section id="create-bookmark">
     <div id="create-bookmark-container">
-      
       <header>
         <h1>Linked <span><img src="linked-list-logo.svg" alt="Linked List logo"></span> List</h1>
       </header>
-      
       <form id="create-bookmark-form">
-        <input id="title-input" type="text" placeholder="Website Title" name="title_input"/>
-        <input id="url-input" type="text" placeholder="Website URL" name="url_input"/>
-        <button id="create-bookmark-button" type="submit" disabled>Enter</button>
+        <input id="title-input" type="text" placeholder="Website Title" name="title_input" aria-label="Add bookmark title field" aria-required="true"/>
+        <input id="url-input" type="text" placeholder="Website URL" name="url_input" ria-label="Add bookmark url field" aria-required="true"/>
+        <button id="create-bookmark-button" type="submit" aria-label="Add Bookmark" disabled>Enter</button>
       </form>
-  
-    <article id="bookmark-counters">
-      <p><span id="total-bookmark-counter">0</span>bookmarks</p>
-      <p><span id="total-read-counter">0</span>read</p>
-      <p class="last"><span id="total-unread-counter">0</span>unread</p>
-    </article>
-
-    <article id="clear-read-bookmarks">
-      <button id="clear-read-bookmarks-button" type="button">Clear Read Bookmarks</button>
-    </article>
-
+      <article id="bookmark-counters" aria-label="Bookmark Counters">
+        <p><span id="total-bookmark-counter" aria-label="Total Bookmarks">0</span>bookmarks</p>
+        <p><span id="total-read-counter" aria-label="Total Read Bookmarks">0</span>read</p>
+        <p class="last"><span id="total-unread-counter" aria-label="Total Unread Bookmarks">0</span>unread</p>
+      </article>
+      <article id="clear-read-bookmarks">
+        <button id="clear-read-bookmarks-button" type="button" aria-label="Clear Read Bookmarks Button">Clear Read Bookmarks</button>
+      </article>
     </div>
   </section>
-
-  <section id="bookmark-list">
+  <section id="bookmark-list" aria-label="Bookmark List">
   </section>
-
   <!-- Scripts -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
-
 </body>
 </html>
-
-
-<!--<article class="bookmark-card">
-      <h2 class="card-title">The Website Title</h2>
-      <hr />
-      <a class="card-url" href="#">www.thewebsiteurl.com</a>
-      <hr />
-      <button class="read-button" type="button">Read</button>
-      <button class="delete-button" type="button">Delete</button>
-    </article> -->

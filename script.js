@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-//create bookmark section
+//create bookmark section variables
 var titleInput = $('#title-input');
 var urlInput = $('#url-input');
 var createBookmarkButton = $('#create-bookmark-button');;
@@ -10,7 +10,7 @@ var totalUnreadCounter = $('#total-unread-counter');
 
 console.log(titleInput);
 
-//bookmark list section
+//bookmark list section variables 
 var bookmarkList = $('#bookmark-list');
 var bookmarkCard = $('.bookmark-card');
 var cardTitle = $('.card-title');
@@ -29,7 +29,6 @@ $(document).on('click', '#clear-read-bookmarks-button', clearReadBookmarks);
 $(createBookmarkButton).prop('disabled',true);
 
 //functions
-
 //toggle disable & enable of create bookmark button 
 function toggleBookmarkButton() {
   $(createBookmarkButton).prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
@@ -61,7 +60,6 @@ function addBookmarkCard() {
   var newBookmarkCard = '<article class="bookmark-card"><h2 class="card-title">' + titleInputValue + '</h2><hr /><a class="card-url" href="' + urlInputValue + '" target="_blank">' + urlInputValue + '</a><hr /><button class="read-button" type="button">Read</button><button class="delete-button" type="button">Delete</button></article>';
 
   bookmarkList.append(newBookmarkCard); 
-
   clearInputs();
   getBookmarkCount();
   toggleBookmarkButton();
@@ -71,11 +69,13 @@ function addBookmarkCard() {
 //counters
 function getBookmarkCount() {
   var totalBookmarks = $('.bookmark-card').length;
+
   $(totalBookmarkCounter).text(totalBookmarks);
 }
 
 function getReadCount() {
   var totalReadBookmarks = $('.read').length;
+
   $(totalReadCounter).text(totalReadBookmarks);
 }
 
@@ -83,13 +83,15 @@ function getUnreadCount() {
   var totalBookmarks = $('.bookmark-card').length;
   var totalReadBookmarks = $('.read').length;
   var totalUnreadBookmarks = totalBookmarks - totalReadBookmarks;
+
   $(totalUnreadCounter).text(totalUnreadBookmarks);
 }
 
 //clear buttons
 function clearReadBookmarks() {
-  $('article.bookmark-card.read').remove();
   totalReadCounter.innerHTML = 0;
+
+  $('article.bookmark-card.read').remove();
   getBookmarkCount();
   getReadCount();
 }
