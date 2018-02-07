@@ -166,6 +166,9 @@ a {
   display: block;
   padding-top: 18px;
   padding-bottom: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 a:hover {
