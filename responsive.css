@@ -1,8 +1,8 @@
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
 
   #create-bookmark-container {
-    width: 364px;
-    min-width: 320px;
+    width: 285px;
+    min-width: 285px;
     display: block;
   } 
 
@@ -13,10 +13,12 @@
 
   .bookmark-card {
     max-width: 100%;
+    min-width: 0px;
   }
 
   #bookmark-list {
-    min-width: 320px;
+    min-width: 285px;
+    padding: 20px 10px 0px 10px;
   }
 
   header {
@@ -44,7 +46,41 @@
   }
 
   #bookmark-counters span, #bookmark-counters p {
-    width: 120px;
+    width: 94px;
   }
+
+}
+
+  @media screen and (min-width: 1320px) {
+    
+  #bookmark-list {
+    padding: 20px 0px 20px 20px;
+  }
+  .bookmark-card {
+    width: 42%;
+    margin-right: 20px;
+    float: left;
+  }
+}
+
+  @media screen and (min-width: 1320px) and (max-width: 1345px) {
+
+  .bookmark-card {
+    width: auto;
+    float: none;
+  }
+}
+
+  @media screen and (min-width: 1000px) and (max-width: 1320px) {
+    
+.bookmark-card {
+    width: auto;
+    float: none;
+    display: block;
+    margin-right: 0px;
+    width: auto;
+    min-width: auto;
+    margin-bottom: 20px;
+}
 
 }
