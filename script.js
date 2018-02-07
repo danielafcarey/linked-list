@@ -8,8 +8,6 @@ var totalBookmarkCounter = $('#total-bookmark-counter');
 var totalReadCounter = $('#total-read-counter');
 var totalUnreadCounter = $('#total-unread-counter');
 
-console.log(titleInput);
-
 //bookmark list section variables 
 var bookmarkList = $('#bookmark-list');
 var bookmarkCard = $('.bookmark-card');
@@ -32,7 +30,7 @@ $(createBookmarkButton).prop('disabled',true);
 //toggle disable & enable of create bookmark button 
 function toggleBookmarkButton() {
   $(createBookmarkButton).prop('disabled', titleInput.val() === '' && urlInput.val() === '' ? true : false);
-}
+};
 
 //validate inout fields aren't empty and valid
 function validateInput(event) {
@@ -51,7 +49,7 @@ function validateInput(event) {
   } else {
     addBookmarkCard();
   }
-}
+};
 
 //add a new bookmark
 function addBookmarkCard() {
@@ -64,20 +62,20 @@ function addBookmarkCard() {
   getBookmarkCount();
   toggleBookmarkButton();
   getUnreadCount();
-}
+};
 
 //counters
 function getBookmarkCount() {
   var totalBookmarks = $('.bookmark-card').length;
 
   $(totalBookmarkCounter).text(totalBookmarks);
-}
+};
 
 function getReadCount() {
   var totalReadBookmarks = $('.read').length;
 
   $(totalReadCounter).text(totalReadBookmarks);
-}
+};
 
 function getUnreadCount() {
   var totalBookmarks = $('.bookmark-card').length;
@@ -85,7 +83,7 @@ function getUnreadCount() {
   var totalUnreadBookmarks = totalBookmarks - totalReadBookmarks;
 
   $(totalUnreadCounter).text(totalUnreadBookmarks);
-}
+};
 
 //clear buttons
 function clearReadBookmarks() {
@@ -94,26 +92,26 @@ function clearReadBookmarks() {
   $('article.bookmark-card.read').remove();
   getBookmarkCount();
   getReadCount();
-}
+};
 
 function clearInputs() {
   $("#title-input").val("");
   $("#url-input").val("");
-}
+};
 
 //read & delete buttons
 function readButton() {
   $(this).closest('.bookmark-card').toggleClass('read');
   getReadCount();
   getUnreadCount();
-}   
+};  
 
 function deleteButton() {
   $(this).closest('.bookmark-card').remove();
   getBookmarkCount();
   getReadCount();
   getUnreadCount();
-}
+};
 
 
 });
