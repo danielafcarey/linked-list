@@ -41,13 +41,15 @@
 }
 
 @media screen and (max-width: 410px) {
- #create-bookmark-container {
-  width: 364px;
-  min-width: 320px;
-  display: block;
-  min-width: 320px;
-}
-#bookmark-counters p {
+  #create-bookmark-container {
+    width: 364px;
+    min-width: 320px;
+    display: block;
+    min-width: 320px;
+  }
+
+  #bookmark-counters p {
     width: 120px;
-}
+  }
+
 }
