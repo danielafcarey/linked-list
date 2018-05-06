@@ -11,10 +11,12 @@ Linked List is a tool to keep track of bookmarks.
 ### *Our Comp:* 
 
 Desktop:
+
 ![Main Screen](./main.png)
 
 
 Mobile:
+
 ![Mobile](./mobile.png)
 ---
 
