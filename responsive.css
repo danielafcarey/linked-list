@@ -1,4 +1,4 @@
-@media screen and (min-width: 1320px) {
+@media screen and (min-width: 1345px) {
     
   #bookmark-list {
     padding: 20px 0px 20px 20px;
@@ -12,22 +12,14 @@
 
 }
 
-@media screen and (min-width: 1320px) and (max-width: 1345px) {
 
-  .bookmark-card {
-    width: auto;
-    float: none;
-  }
-
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1320px) {
+@media screen and (min-width: 1001px) and (max-width: 1344px) {
     
   .bookmark-card {
     width: auto;
     float: none;
     display: block;
-    margin-right: 0px;
+    margin-right: 0;
     width: auto;
     min-width: auto;
     margin-bottom: 20px;
